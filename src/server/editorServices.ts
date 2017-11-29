@@ -1525,6 +1525,8 @@ namespace ts.server {
             }
 
             project.setProjectErrors(configFileErrors);
+            // Fix for https://github.com/angular/angular/issues/20552
+            project.setTypeAcquisition(projectOptions.typeAcquisition);
             const filesToAdd = projectOptions.files.concat(project.getExternalFiles());
             this.addFilesToNonInferredProjectAndUpdateGraph(project, filesToAdd, fileNamePropertyReader, projectOptions.typeAcquisition);
             this.configuredProjects.set(project.canonicalConfigFilePath, project);
