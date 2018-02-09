@@ -859,6 +859,7 @@ namespace ts.server {
                 inserted => {
                     const scriptInfo = this.projectService.getOrCreateScriptInfoNotOpenedByClient(inserted, this.currentDirectory, this.directoryStructureHost);
                     scriptInfo.attachToProject(this);
+                    this.rootFilesMap.set(scriptInfo.path, scriptInfo);
                 },
                 removed => this.detachScriptInfoFromProject(removed)
             );
