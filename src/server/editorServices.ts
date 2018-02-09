@@ -1487,7 +1487,7 @@ namespace ts.server {
             }
 
             project.setProjectErrors(configFileErrors);
-            const filesToAdd = projectOptions.files.concat(project.getExternalFiles());
+            const filesToAdd = projectOptions.files;
             this.addFilesToNonInferredProjectAndUpdateGraph(project, filesToAdd, fileNamePropertyReader, projectOptions.typeAcquisition);
             this.configuredProjects.set(project.canonicalConfigFilePath, project);
             this.setConfigFileExistenceByNewConfiguredProject(project);
